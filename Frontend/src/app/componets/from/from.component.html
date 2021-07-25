@@ -1,0 +1,71 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <div class="row">
+      <form #taskForm="ngForm">
+        <div class="mb-3 row from-group">
+          <label for="name" class="form-label">Task Name: </label>
+          <input
+            type="hidden"
+            [(ngModel)]="CurrentItem.id"
+            name="id"
+            #taskId="ngModel"
+          />
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="CurrentItem.name"
+              [ngClass]="{ 'is-invalid': taskName.errors && taskName.touched }"
+              name="name"
+              id="name"
+              required
+              #taskName="ngModel"
+              minlength="3"
+            />
+            <div [hidden]="!taskName.errors?.required" class="invalid-feedback">
+              Task Name Is Required !!
+            </div>
+            <div
+              [hidden]="!taskName.errors?.minlength"
+              class="invalid-feedback"
+            >
+              Task Name Must Contains At Least 3 Characters !!
+            </div>
+
+            <div class="form-check mt-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="true"
+                id="status"
+                name="status"
+                ng-checked="CurrentItem.status"
+                [(ngModel)]="CurrentItem.status"
+              />
+              <label class="form-check-label" for="status"> Done </label>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <button
+              *ngIf="!isEdit"
+              type="button"
+              class="btn btn-dark"
+              (click)="OnSubmit(taskForm)"
+            >
+              Add Task
+            </button>
+            <button
+              *ngIf="isEdit"
+              type="button"
+              class="btn btn-warning"
+              (click)="update(taskForm)"
+            >
+              Update Task
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
