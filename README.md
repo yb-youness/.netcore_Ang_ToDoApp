@@ -31,8 +31,11 @@
 
 #### To Run
 
-- Run Using .net Cli <br> `1 cd Backend/API ` <br> `2 dotnet watch run ` To Run The Serve
-- Run The Client <br>`1 cd Frontend ` <br> `ng serve --open`
+- Run Using .net Cli <br> `1 cd Backend/API ` 
+- <br> `2 dotnet watch run ` To Run The Serve
+- Run The Client <br>`1 cd Frontend ` 
+- `npm install `
+- <br> `ng serve --open`
 
 #### Tools
 
